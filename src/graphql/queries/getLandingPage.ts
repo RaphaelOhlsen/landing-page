@@ -1,4 +1,11 @@
 const GET_LANDING_PAGE = /* GraphQL */ `
+  fragment logo on LandingPage {
+    logo {
+      alternativeText
+      url
+    }
+  }
+
   fragment header on LandingPage {
     header {
       title
@@ -11,13 +18,6 @@ const GET_LANDING_PAGE = /* GraphQL */ `
         url
         alternativeText
       }
-    }
-  }
-
-  fragment logo on LandingPage {
-    logo {
-      alternativeText
-      url
     }
   }
 
@@ -44,12 +44,23 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionConcepts on LandingPage {
+    sectionConcepts {
+      title
+      concepts {
+        id
+        title
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
       ...header
       ...sectionAboutProject
       ...sectionTech
+      ...sectionConcepts
     }
   }
 `
