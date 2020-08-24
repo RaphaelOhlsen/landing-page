@@ -1,4 +1,13 @@
-import { PricingBox } from 'components/PricingBox'
+export type Image = {
+  alternativeText: string
+  url: string
+}
+
+export type Button = {
+  label: string
+  url: string
+}
+
 export type TechIcon = {
   title: string
   icon: {
@@ -18,31 +27,19 @@ export type Module = {
   description: string
 }
 
-export type LogoProps = {
-  alternativeText: string
-  url: string
-}
+export type LogoProps = Image
 
 export type HeaderProps = {
   title: string
   description: string
-  button: {
-    label: string
-    url: string
-  }
-  image: {
-    url: string
-    alternativeText: string
-  }
+  button: Button
+  image: Image
 }
 
 export type SectionAboutProjectProps = {
   title: string
   description: string
-  image: {
-    alternativeText: string
-    url: string
-  }
+  image: Image
 }
 
 export type SectionTechProps = {
@@ -70,10 +67,27 @@ export type PricingBoxProps = {
   numberInstallments: number
   priceInstallment: number
   benefits: string
-  button: {
-    label: string
-    url: string
-  }
+  button: Button
+}
+
+export type SocialLink = {
+  id: string
+  title: string
+  url: string
+}
+
+export type Author = {
+  id: string
+  name: string
+  photo: Image
+  role: string
+  socialLinks: SocialLink[]
+  description: string
+}
+
+export type SectionAboutUsProps = {
+  title: string
+  authors: Author[]
 }
 
 export type LandingPageProps = {
@@ -85,4 +99,5 @@ export type LandingPageProps = {
   sectionModules: SectionModulesProps
   sectionAgenda: SectionAgendaProps
   pricingBox: PricingBoxProps
+  sectionAboutUs: SectionAboutUsProps
 }
